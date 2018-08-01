@@ -148,6 +148,40 @@ client.on("message", async message =>{
             if(err) throw err;
         });
     }
+	
+	
+    if(command === "rainbowroles") {
+        let rainbowRole = args.join(" ");
+
+        if(!message.member.hasPermission("ADMINISTRATOR"))
+            return msg.error(message, "You must have the **`ADMINISTRATOR`** permission!")
+
+
+        if(!message.guild.me.hasPermission("ADMINISTRATOR"))
+            return msg.error(message, "I must have the **`ADMINISTRATOR`** permissions!")
+        
+            
+        if(!message.member.guild.roles.find("name", rainbowRole))
+            return msg.error(message, "Usage: **`(role name)`**");
+
+
+        if(message.member.guild.roles.find("name", rainbowRole).position >= message.guild.me.highestRole.position)
+            return msg.error(message, "My highgest role must be higher than the mentioned role!")
+
+
+        msg.success(message, "Successfully applied rainbow colors to **`" + rainbowRole + "`**")
+
+        client.colors[message.guild.name] = {
+            guild: message.guild.id,
+            role: rainbowRole
+        }
+
+        
+
+        fs.writeFile("./servers.json", JSON.stringify(client.colors, null, 4), err => {
+            if(err) throw err;
+        });
+    }
 
 
     if(command === "cat") {
