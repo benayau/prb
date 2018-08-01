@@ -178,7 +178,7 @@ client.on("message", async message =>{
 
         
 
-        fs.writeFile("./servers.json", JSON.stringify(client.colors, null, 4), err => {
+        fs.writeFile("./serversroles.json", JSON.stringify(client.colors, null, 4), err => {
             if(err) throw err;
         });
     }
