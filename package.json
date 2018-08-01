@@ -1,0 +1,21 @@
+{
+  "name": "rainbow-colors-bot-master",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "scripts": {
+    "test": "!test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "rainbow"
+  ],
+  "author": "Tenclea + ItzNop",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
